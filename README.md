@@ -8,6 +8,16 @@ A lightweight Python script that monitors CPU, RAM, and disk usage — and sends
 
 ---
 
+## Architecture
+```mermaid
+flowchart TD
+    A([🕐 Trigger\nCron Job / Manual / --loop]) --> B
+    ...paste the full diagram content here...
+```
+
+
+---
+
 ## How It Works
 
 1. Collects CPU, RAM, and disk metrics using `psutil`
