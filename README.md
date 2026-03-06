@@ -12,7 +12,6 @@ A lightweight Python script that monitors CPU, RAM, and disk usage — and sends
 ```mermaid
 flowchart TD
     A([🕐 Trigger\nCron Job / Manual / --loop]) --> B
-    ...paste the full diagram content here...
 ```
 
 
