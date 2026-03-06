@@ -19,7 +19,7 @@ A lightweight Python script that monitors CPU, RAM, and disk usage — and sends
 
 
 ## Architecture
-```
+
 ```mermaid
 flowchart TD
     A([Trigger - Cron / Manual / Loop]) --> B[Collect CPU Usage]
@@ -42,7 +42,6 @@ flowchart TD
     J --> K[SMTP Client - TLS port 587]
     K --> L[Gmail / SMTP Server]
     L --> M([Alert delivered to Inbox])
-```
 ```
 
 
