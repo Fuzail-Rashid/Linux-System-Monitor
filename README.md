@@ -8,22 +8,43 @@ A lightweight Python script that monitors CPU, RAM, and disk usage — and sends
 
 ---
 
-## Architecture
-```
-git add README.md
-git commit -m "docs: fix architecture diagram"
-git push
-```
-
-
----
-
 ## How It Works
 
 1. Collects CPU, RAM, and disk metrics using `psutil`
 2. Compares each value against configurable thresholds
 3. If any threshold is exceeded, sends an HTML email alert
 4. Can run once (manual/cron) or continuously in loop mode
+
+---
+
+
+## Architecture
+```
+```mermaid
+flowchart TD
+    A([Trigger - Cron / Manual / Loop]) --> B[Collect CPU Usage]
+    A --> C[Collect RAM Usage]
+    A --> D[Collect Disk Usage]
+
+    B --> E{CPU over 80%?}
+    C --> F{RAM over 85%?}
+    D --> G{Disk over 90%?}
+
+    E -->|No| H([All Clear - Log to stdout])
+    F -->|No| H
+    G -->|No| H
+
+    E -->|Yes| I[Build Alert List]
+    F -->|Yes| I
+    G -->|Yes| I
+
+    I --> J[Compose HTML Email]
+    J --> K[SMTP Client - TLS port 587]
+    K --> L[Gmail / SMTP Server]
+    L --> M([Alert delivered to Inbox])
+```
+```
+
 
 ---
 
